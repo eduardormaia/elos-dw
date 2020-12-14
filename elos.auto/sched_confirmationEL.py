@@ -16,8 +16,6 @@ def get_sched(units,StartDate,EndDate):
     df = pd.DataFrame()
     units = units.unitis()
     unitid = units['Id'].tolist()
-    print(units)
-    print('Getting schedule...')
     Inicio = datetime.datetime.strftime(StartDate, "%d/%m/%Y")
     Fim = datetime.datetime.strftime(EndDate, "%d/%m/%Y")
     print(Inicio + ' a ' + Fim)
@@ -112,7 +110,6 @@ where sched_id in (
     )""")
     conn.commit()
     cursor.close()
-    print("Done")
 
 
 
@@ -164,10 +161,10 @@ while True:
 
     now = datetime.datetime.now()
     since = now.date() - datetime.timedelta(days= 2)
-    StartDate = now.date() - datetime.timedelta(days= 1)
+    StartDate = now.date() - datetime.timedelta(days= 2)
     LimitDate = StartDate + datetime.timedelta(days=30)
-    EndDate = StartDate + datetime.timedelta(days=10)
-
+    EndDate = StartDate + datetime.timedelta(days=15)
+    
 
     while True:
         conn = psycopg2.connect(
@@ -194,7 +191,7 @@ while True:
         conn.close()
 
         StartDate = EndDate + datetime.timedelta(days=1)
-        EndDate = EndDate + datetime.timedelta(days=10)
+        EndDate = EndDate + datetime.timedelta(days=15)
 
 
         if StartDate > LimitDate:
