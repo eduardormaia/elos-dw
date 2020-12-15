@@ -160,8 +160,8 @@ pd.set_option('display.max_columns', 20)
 while True:
 
     now = datetime.datetime.now()
-    since = now.date() - datetime.timedelta(days= 2)
-    StartDate = now.date() - datetime.timedelta(days= 2)
+    since = now.date() - datetime.timedelta(days= 60)
+    StartDate = now.date() - datetime.timedelta(days= 60)
     LimitDate = StartDate + datetime.timedelta(days=30)
     EndDate = StartDate + datetime.timedelta(days=15)
     
@@ -192,10 +192,8 @@ while True:
 
         StartDate = EndDate + datetime.timedelta(days=1)
         EndDate = EndDate + datetime.timedelta(days=15)
-
-
         if StartDate > LimitDate:
-            time.sleep(360)
-        
+            break
+    
     time.sleep(300)
     print("Sleeping for 5 minutes")
