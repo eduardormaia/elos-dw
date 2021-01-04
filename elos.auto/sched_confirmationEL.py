@@ -18,7 +18,7 @@ def get_sched(units,StartDate,EndDate):
     unitid = units['Id'].tolist()
     Inicio = datetime.datetime.strftime(StartDate, "%d/%m/%Y")
     Fim = datetime.datetime.strftime(EndDate, "%d/%m/%Y")
-    print(Inicio + ' a ' + Fim)
+    print('Período Elos: '+ Inicio + ' a ' + Fim + str(' Started At: ') + str(datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S')))
     for i in unitid:
 
         url = "https://espacolaser.evup.com.br/Report/SchedulerEvent/List"
@@ -162,7 +162,7 @@ while True:
     now = datetime.datetime.now()
     since = now.date() - datetime.timedelta(days= 30)
     StartDate = now.date() - datetime.timedelta(days= 2)
-    LimitDate = StartDate + datetime.timedelta(days=40)
+    LimitDate = StartDate + datetime.timedelta(days=30)
     EndDate = StartDate + datetime.timedelta(days=15)
     
 
@@ -191,7 +191,7 @@ while True:
         conn.close()
 
         StartDate = EndDate + datetime.timedelta(days=1)
-        EndDate = EndDate + datetime.timedelta(days=20)
+        EndDate = EndDate + datetime.timedelta(days=15)
         if StartDate > LimitDate:
             break
     
