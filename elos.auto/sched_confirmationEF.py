@@ -17,11 +17,10 @@ def get_sched(units,StartDate,EndDate):
     units = units.unitis()
     units  = units[units['Description'].str.contains('ESTUDIO')]
     unitid = units['Id'].tolist()
-    print(units)
-    print('Getting schedule...')
+   print('Getting schedule...')
     Inicio = datetime.datetime.strftime(StartDate, "%d/%m/%Y")
     Fim = datetime.datetime.strftime(EndDate, "%d/%m/%Y")
-    print(Inicio + ' a ' + Fim)
+    print('Período Elos: '+ Inicio + ' a ' + Fim + str(' Started At: ') + str(datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S')))
     for i in unitid:
         print(i)
 
