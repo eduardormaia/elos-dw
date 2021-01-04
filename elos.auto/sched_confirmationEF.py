@@ -22,7 +22,6 @@ def get_sched(units,StartDate,EndDate):
     Fim = datetime.datetime.strftime(EndDate, "%d/%m/%Y")
     print('Período Elos: '+ Inicio + ' a ' + Fim + str(' Started At: ') + str(datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S')))
     for i in unitid:
-        print(i)
 
         url = "https://espacolaser.evup.com.br/Report/SchedulerEvent/List"
 
